@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DownloadKro.com - Free Video Downloader</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-download"></i>
+                DownloadKro.com
+            </a>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Download Videos Instantly</h1>
+            <p>Fast, Free, and Secure Video Downloader for YouTube, Instagram, Facebook, and more!</p>
+        </div>
+    </section>
+
+    <section class="download-section">
+        <div class="container">
+            <div class="download-card">
+                <div class="input-group">
+                    <input 
+                        type="url" 
+                        class="url-input" 
+                        placeholder="Paste your video URL here (YouTube, Instagram, Facebook, etc.)"
+                        id="videoUrl"
+                    >
+                    <button class="fetch-btn" onclick="fetchVideo()">
+                        <i class="fas fa-search"></i> Fetch Video
+                    </button>
+                </div>
+
+                <div class="video-preview" id="videoPreview">
+                    <div class="video-info">
+                        <img class="video-thumbnail" id="videoThumbnail" src="" alt="Video Thumbnail">
+                        <div class="video-details">
+                            <h3 id="videoTitle">Video Title</h3>
+                            <div class="video-meta">
+                                <span><i class="fas fa-clock"></i> <span id="videoDuration">0:00</span></span>
+                                <span><i class="fas fa-eye"></i> <span id="videoViews">0</span> views</span>
+                                <span><i class="fas fa-user"></i> <span id="videoChannel">Channel</span></span>
+                            </div>
+                            <p id="videoDescription">Video description...</p>
+                        </div>
+                    </div>
+
+                    <div class="format-grid" id="formatGrid">
+                        <!-- Format options will be populated here -->
+                    </div>
+
+                    <button class="download-btn" onclick="downloadVideo()" id="downloadBtn" disabled>
+                        <i class="fas fa-download"></i> Select a format to download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-to-use">
+        <div class="container">
+            <h2 class="section-title">How to Use DownloadKro.com</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <h3>Step 1: Copy URL</h3>
+                    <p>Copy the video URL from YouTube, Instagram, Facebook, or any supported platform.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-paste"></i>
+                    </div>
+                    <h3>Step 2: Paste & Fetch</h3>
+                    <p>Paste the URL in the input box above and click "Fetch Video" to analyze the content.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Step 3: Choose Format</h3>
+                    <p>Select your preferred video quality and format (MP4, MP3, etc.) from the available options.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Step 4: Download</h3>
+                    <p>Click the download button and your video will be saved to your device instantly!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is DownloadKro.com free to use?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! DownloadKro.com is completely free to use. You can download unlimited videos without any charges or registration requirements.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What platforms are supported?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We support YouTube, Instagram, Facebook, Twitter, TikTok, Vimeo, and many other popular video platforms.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What video formats can I download?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can download videos in various formats including MP4, MP3, AVI, and different quality options from 144p to 4K.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is it safe to use?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We don't store your videos or personal data. All processing is done securely and your privacy is protected.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do I need to install any software?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No installation required! DownloadKro.com works directly in your browser. Just paste the URL and download.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DownloadKro.com</h3>
+                    <p>Your trusted partner for fast and secure video downloads. Supporting all major platforms with high-quality output.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#how-to-use">How to Use</a></p>
+                    <p><a href="#faq">FAQ</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                    <p><a href="#privacy">Privacy Policy</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Supported Platforms</h3>
+                    <p>YouTube</p>
+                    <p>Instagram</p>
+                    <p>Facebook</p>
+                    <p>TikTok</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@downloadkro.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            
+            <p>&copy; 2025 DownloadKro.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
